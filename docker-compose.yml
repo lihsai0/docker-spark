@@ -1,0 +1,42 @@
+version: '3.7'
+
+networks:
+  spark-network:
+    driver: bridge
+
+services:
+  spark-master:
+    build:
+      context: .
+    ports:
+      - "7077:7077"
+      - "8080:8080"
+    networks:
+      - spark-network
+
+  spark-worker1:
+    build:
+      context: .
+    ports:
+      - "8081:8080"
+    environment:
+      ROLE: "worker"
+      MASTER_URL: "spark://spark-master:7077"
+    networks:
+      - spark-network
+    depends_on:
+      - spark-master
+
+  spark-worker2:
+    build:
+      context: .
+    ports:
+      - "8082:8080"
+    environment:
+      ROLE: "worker"
+      MASTER_URL: "spark://spark-master:7077"
+    networks:
+      - spark-network
+    depends_on:
+      - spark-master
+
