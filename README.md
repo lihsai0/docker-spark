@@ -6,6 +6,12 @@
 docker build -t $USER/spark .
 ```
 
+NOTE: The tsinghua mirror only sync the last version. So building may failed if there is a last version of spark.
+
+The history versions I builed can be found in Aliyun:
+
+Container Registry -> Image Hub -> Search -> lihs/spark
+
 ### Create Spark Network
 
 ``` shell

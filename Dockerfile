@@ -1,6 +1,6 @@
 FROM openjdk:8-alpine
 
-ARG SPARK_DOWNLOAD_URL="http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.5/spark-2.4.5-bin-hadoop2.7.tgz"
+ARG SPARK_DOWNLOAD_URL="http://mirrors.tuna.tsinghua.edu.cn/apache/spark/spark-2.4.7/spark-2.4.7-bin-hadoop2.7.tgz"
 
 ENV SPARK_HOME="/spark" \
 ROLE="master" \
